@@ -2,11 +2,20 @@
 
 function product(nums) {
 
+  if(nums.length === 0) return 1;
+  
+  return nums[0] * product(nums.slice(1));
 }
 
 /** longest: return the length of the longest word in an array of words. */
 
 function longest(words) {
+
+  if (words.length === 0) return 0;
+  
+  // return words[0].length, longest(words.slice(1))
+
+  return (words[0].length > longest(words.slice(1)) ? words[0].length : longest(words.slice(1)))
 
 }
 
@@ -14,6 +23,9 @@ function longest(words) {
 
 function everyOther(str) {
 
+  if (str.length === 0) return "";
+
+  return str[0].concat(everyOther(str.slice(2)));
 }
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
