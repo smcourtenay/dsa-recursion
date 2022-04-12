@@ -2,8 +2,8 @@
 
 function product(nums) {
 
-  if(nums.length === 0) return 1;
-  
+  if (nums.length === 0) return 1;
+
   return nums[0] * product(nums.slice(1));
 }
 
@@ -12,7 +12,7 @@ function product(nums) {
 function longest(words) {
 
   if (words.length === 0) return 0;
-  
+
   // return words[0].length, longest(words.slice(1))
 
   return (words[0].length > longest(words.slice(1)) ? words[0].length : longest(words.slice(1)))
@@ -32,37 +32,49 @@ function everyOther(str) {
 
 
 function isPalindrome(str) {
-    if(str.length === 0 || str.length === 1) return true;
+  if (str.length === 0 || str.length === 1) return true;
 
-    const left = str[0];
-    const right = str[str.length - 1];
+  const left = str[0];
+  const right = str[str.length - 1];
 
-    return left === right ? isPalindrome(str.slice(1, str.length - 1)) : false; 
+  return left === right ? isPalindrome(str.slice(1, str.length - 1)) : false;
 
 }
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
-[4, 1, 2, 3, 4]
-[4, 1, 2, 3] 4
-[4, 1, 2] 3, 4
-[4, 1] 2 3 4
-[4] 1 2 3 4
-[] 4 1 2 3 4
- function findIndex(arr, val, at=0) {
-    if(arr.length === 0) return -1;
-    // const idx = (arr[arr.length - 1] === val) ? arr.length - 1 : -1;
-    return (arr[arr.length - 1] === val) ? idx : findIndex(arr.slice(arr.length - 1, val));
+
+function findIndex(arr, val) {
+  if (arr.length === 0) return -1;
+  if (arr[0] === val) return 0;
+
+  const answer = findIndex(arr.slice(1), val);
+  return answer === -1 ? -1 : 1 + answer;
 }
 
 /** revString: return a copy of a string, but in reverse. */
 
-function revString(str) {
 
+function revString(str) {
+  if (str.length === 0) return "";
+
+  const answer = revString(str.slice(1));
+  return answer.concat(str[0]);
 }
 
 /** gatherStrings: given an object, return an array of all of the string values. */
 
 function gatherStrings(obj) {
+
+  for(let key in obj){
+    if (typeof obj[key] === "string") return obj[key];
+
+    if (typeof obj[key] === "object"){
+      gatherStrings(obj[key])
+    }
+  }
+
+
+
 
 }
 
