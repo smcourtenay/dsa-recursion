@@ -63,37 +63,51 @@ function revString(str) {
 
 /** gatherStrings: given an object, return an array of all of the string values. */
 
-obj = {
-  key: "string"
-  nestedObj = {
-    dog: "dogoo"
-    cat: 1
-  }
-}
--> "string" -> "dogoo" -> 1
+// obj = {
+//   key: "string"
+//   nestedObj = {
+//     dog: "dogoo"
+//     cat: 1
+//   }
+// }
+// -> "string" -> "dogoo" -> 1
 
-function gatherStrings(obj) {
-  const arr = [];
+function gatherStrings(obj, output=[]) {
 
   for(let key in obj){
-    if (typeof obj[key] === "string") {
-      return obj[key];
-    }
+    if (typeof obj[key] === "string") output.push(obj[key]);
 
     if (typeof obj[key] === "object"){
-      return gatherStrings(obj[key]);
+      console.log("Our obj", obj[key])
+      gatherStrings(obj[key], output);
     }
-
-    output = [...gatherStrings()]
   }
 
-  return arr;
+  return output;
 }
 
 /** binarySearch: given a sorted array of numbers, and a value,
  * return the index of that value (or -1 if val is not present). */
 
 function binarySearch(arr, val) {
+
+  if(arr.length === 0) return -1;
+
+  const left = 0;
+  const right = arr.length - 1;
+  const mid = Math.floor((left + right) / 2);
+
+  if (arr[mid] === val){
+    return ????
+  }
+
+  if (mid > val) {
+    binarySearch(arr.slice(left, mid), val)
+  }
+
+  if (mid < val) {
+    binarySearch(arr.slice(mid, right), val)
+  }
 
 }
 
