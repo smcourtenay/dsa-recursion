@@ -48,7 +48,7 @@ function isPalindrome(str) {
 [4, 1] 2 3 4
 [4] 1 2 3 4
 [] 4 1 2 3 4
- function findIndex(arr, val) {
+ function findIndex(arr, val, at=0) {
     if(arr.length === 0) return -1;
     // const idx = (arr[arr.length - 1] === val) ? arr.length - 1 : -1;
     return (arr[arr.length - 1] === val) ? idx : findIndex(arr.slice(arr.length - 1, val));
