@@ -78,7 +78,6 @@ function gatherStrings(obj, output=[]) {
     if (typeof obj[key] === "string") output.push(obj[key]);
 
     if (typeof obj[key] === "object"){
-      console.log("Our obj", obj[key])
       gatherStrings(obj[key], output);
     }
   }
@@ -97,17 +96,17 @@ function binarySearch(arr, val) {
   const right = arr.length - 1;
   const mid = Math.floor((left + right) / 2);
 
-  if (arr[mid] === val){
-    return ????
-  }
+  // if (arr[mid] === val){
+  //   return ????
+  // }
 
-  if (mid > val) {
-    binarySearch(arr.slice(left, mid), val)
-  }
+  // if (mid > val) {
+  //   binarySearch(arr.slice(left, mid), val)
+  // }
 
-  if (mid < val) {
-    binarySearch(arr.slice(mid, right), val)
-  }
+  // if (mid < val) {
+  //   binarySearch(arr.slice(mid, right), val)
+  // }
 
 }
 
